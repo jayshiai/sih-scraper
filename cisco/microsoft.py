@@ -1,0 +1,1 @@
+url="https://api.msrc.microsoft.com/sug/v2.0/en-US/vulnerability?$orderBy=releaseDate%20desc"
