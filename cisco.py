@@ -13,8 +13,20 @@ def main():
 
     print("Vendor inserted.")
 
-    if data:
-        new_advisories = scraper.check_for_new_advisories(data, vendor_id)
+    new_data = []
+    for entry in data:
+        new_entry = {
+             "identifier": entry["identifier"],
+            "title": entry["title"],
+            "firstPublished": entry["lastPublished"],
+            "url": entry["url"],
+            "cve": entry["cve"]
+        }
+        new_data.append(new_entry)
+    
+    # print("New data: ", new_data)
+    if new_data:
+        new_advisories = scraper.check_for_new_advisories(new_data, vendor_id)
 
         titles = [advisory['title'] for advisory in new_advisories]
         print("New advisories: ", titles)
